@@ -49,13 +49,17 @@ def counter():
         global workTime
     
         if isRunning:
-            if workTime > 60:
+            if workTime > 1255:
+                timeText = str(workTime//60) + ' MIN'
+                infoText = 'Start work'
+                workTime -= 1
+            elif workTime > 60:
                 timeText = str(workTime//60) + ' MIN'
                 infoText = 'work'
                 workTime -= 1
             elif (workTime == 60):
                 timeText = ' '
-                infoText = 'Rest: look into the distance'
+                infoText = 'Start rest'
                 winsound.Beep(500,100)
                 restButton.place(relx = 0.5, rely = 0.3, relwidth = 0.3, relheight = 0.15, anchor = 'center')
             elif (workTime < 60 and workTime > -1):
